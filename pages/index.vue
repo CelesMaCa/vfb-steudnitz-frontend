@@ -1,9 +1,13 @@
 <template>
   <div class="container">
-    <NuxtLogo />
-    <div v-for="hauptseiten in hauptseitens" v-bind:key="hauptseiten.id">
-      <h1 class="title"> {{ hauptseiten.HTitel }}</h1>
-    </div>
+    <table broder="0">
+      <tr>
+        <td><Logo /></td>
+        <div v-for="hauptseiten in hauptseitens" v-bind:key="hauptseiten.id">
+          <td> {{ hauptseiten.HTitel }}</td>
+        </div>
+      </tr>
+    </table>
   </div>
 </template>
 
@@ -11,6 +15,7 @@
 import { hauptseitenQuery } from '../graphql/query.js'
 
 export default {
+  layout: "default",
   data() {
     return {
       hauptseitens:[],
