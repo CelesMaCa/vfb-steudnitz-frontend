@@ -8,3 +8,16 @@ query {
     }
   }
 `
+
+export const sportartenQuery = gql`
+query {
+    sportartens{
+        SName
+        STitel
+        mannschafts{
+            MName
+            MTitel
+        }
+    }
+  }
+`
