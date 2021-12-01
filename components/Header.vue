@@ -1,24 +1,28 @@
 <template>
-  <div class="container">
-    <table broder="0">
-      <tr>
-        <td><Logo /></td>
+<div class="container">
+  <b-navbar toggleable="lg" type="dark" variant="info">
+    <b-navbar-brand href="#">VfB Steunditz</b-navbar-brand>
+
+    <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+    <b-collapse id="nav-collapse" is-nav>
+      <b-navbar-nav>
         <div v-for="hauptseiten in hauptseitens" v-bind:key="hauptseiten.id">
-          <td>
-            {{ hauptseiten.HTitel }}
-            <div v-if="hauptseiten.HTitel === 'Sportarten'">
-              <div v-for="sportarten in sportartens" v-bind:key="sportarten.id">
-                {{ sportarten.STitel}}
-                <div v-for="mannschaft in sportarten.mannschafts" v-bind:key="mannschaft.id">
-                {{ mannschaft.MTitel}}
-                </div> <!-- End v-for Mannschaften -->
-              </div> <!-- End v-for Sportarten -->
-            </div> <!-- End v-if -->
-          </td>
-        </div> <!-- End v-for Hauptseiten -->
-      </tr>
-    </table>
-  </div>
+          <div v-if="hauptseiten.HTitel === 'Sportarten'">
+            <b-nav-item-dropdown v-bind:text="hauptseiten.HTitel" right>
+            <div v-for="sportarten in sportartens" v-bind:key="sportarten.id">
+              <b-dropdown-item href="#">{{ sportarten.STitel}}</b-dropdown-item>
+            </div>
+            </b-nav-item-dropdown>
+          </div>
+          <div v-else>
+            <b-nav-item href="#">{{ hauptseiten.HTitel }}</b-nav-item>
+          </div>
+        </div>
+      </b-navbar-nav>
+    </b-collapse>
+  </b-navbar>
+</div>
 </template>
 
 <script lang="ts">
