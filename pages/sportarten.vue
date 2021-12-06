@@ -1,12 +1,15 @@
 <template>
   <div>
     <div v-for="sportarten in sportartens" v-bind:key="sportarten.id">
-      <b-card v-bind:title="sportarten.STitel">
-        <b-card-text>
-        {{ sportarten.Kurzbeschreibung }}
-        </b-card-text>
-
-        <!-- <b-link href="#" class="card-link">Another link</b-link> -->
+      <b-card no-body>
+        <b-card-body>
+          <b-link :to="{ path: sportarten.hauptseiten.HName, params: {STitel: sportarten.SName} }">
+            <h2>{{ sportarten.STitel }}</h2>
+          </b-link>
+          <b-card-text>
+            {{ sportarten.Kurzbeschreibung }}
+          </b-card-text>
+        </b-card-body>
       </b-card>
     </div>  
   </div>

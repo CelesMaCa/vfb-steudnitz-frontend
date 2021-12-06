@@ -5,6 +5,7 @@ query {
     hauptseitens{
       id
       HTitel
+      HName
     }
   }
 `
@@ -25,9 +26,13 @@ query {
 export const sportartenQuery = gql`
 query {
   sportartens{
+    id
     SName
     STitel
     Kurzbeschreibung
+    hauptseiten{
+      HName
+    }
     mannschafts{
       MName
       MTitel

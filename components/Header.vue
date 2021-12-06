@@ -9,14 +9,17 @@
       <b-navbar-nav>
         <div v-for="hauptseiten in hauptseitens" v-bind:key="hauptseiten.id">
           <div v-if="hauptseiten.HTitel === 'Sportarten'">
+          <!-- TODO: Integration Sportarten-Hauptseiten-Link -->
             <b-nav-item-dropdown v-bind:text="hauptseiten.HTitel" right>
-            <div v-for="sportarten in sportartens" v-bind:key="sportarten.id">
-              <b-dropdown-item href="#">{{ sportarten.STitel}}</b-dropdown-item>
-            </div>
+              <div v-for="sportarten in sportartens" v-bind:key="sportarten.id">
+                <b-dropdown-item :to="{ path: hauptseiten.HTitel, params: {STitel: sportarten.SName} }">
+                  {{ sportarten.STitel}}
+                </b-dropdown-item>
+              </div>
             </b-nav-item-dropdown>
           </div>
           <div v-else>
-            <b-nav-item href="#">{{ hauptseiten.HTitel }}</b-nav-item>
+            <b-nav-item :to="'/' + hauptseiten.HName">{{ hauptseiten.HTitel }}</b-nav-item>
           </div>
         </div>
       </b-navbar-nav>
