@@ -1,23 +1,38 @@
 import gql from 'graphql-tag'
 
-export const hauptseitenQuery = gql`
+export const hauptseitenHeaderQuery = gql`
 query {
     hauptseitens{
-      HName
+      id
       HTitel
+    }
+  }
+`
+
+export const sportartenHeaderQuery = gql`
+query {
+    sportartens{
+        id
+        STitel
+        mannschafts{
+            id
+            MTitel
+        }
     }
   }
 `
 
 export const sportartenQuery = gql`
 query {
-    sportartens{
-        SName
-        STitel
-        mannschafts{
-            MName
-            MTitel
-        }
+  sportartens{
+    SName
+    STitel
+    Kurzbeschreibung
+    mannschafts{
+      MName
+      MTitel
+      Kurzbeschreibung
     }
   }
+}
 `

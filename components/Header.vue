@@ -1,7 +1,7 @@
 <template>
 <div class="container">
   <b-navbar toggleable="lg" type="dark" variant="info">
-    <b-navbar-brand href="#">VfB Steunditz</b-navbar-brand>
+    <NuxtLink to="/"><b-navbar-brand>VfB Steunditz</b-navbar-brand></NuxtLink>
 
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
@@ -26,7 +26,7 @@
 </template>
 
 <script lang="ts">
-import { hauptseitenQuery, sportartenQuery } from '../graphql/query.js'
+import { hauptseitenHeaderQuery, sportartenHeaderQuery } from '../graphql/query.js'
 
 export default {
   data() {
@@ -37,10 +37,10 @@ export default {
   },
   apollo: {
     hauptseitens: {
-      query: hauptseitenQuery
+      query: hauptseitenHeaderQuery
     },
     sportartens: {
-      query: sportartenQuery
+      query: sportartenHeaderQuery
     }
   }
 
