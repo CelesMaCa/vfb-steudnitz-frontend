@@ -12,7 +12,7 @@
           <!-- TODO: Integration Sportarten-Hauptseiten-Link -->
             <b-nav-item-dropdown v-bind:text="hauptseiten.HTitel" right>
               <div v-for="sportarten in sportartens" v-bind:key="sportarten.id">
-                <b-dropdown-item :to="{ path: hauptseiten.HTitel, params: {STitel: sportarten.SName} }">
+                <b-dropdown-item :to="{ path: hauptseiten.HName, params: {STitel: sportarten.SName} }">
                   {{ sportarten.STitel}}
                 </b-dropdown-item>
               </div>

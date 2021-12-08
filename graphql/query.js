@@ -29,6 +29,10 @@ query {
     id
     SName
     STitel
+    Cover{
+			caption
+      url
+    }
     Kurzbeschreibung
     hauptseiten{
       HName
