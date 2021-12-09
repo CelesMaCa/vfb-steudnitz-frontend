@@ -13,13 +13,13 @@
             <b-nav-item-dropdown v-bind:text="hauptseiten.HTitel" right>
               <div v-for="sportarten in sportartens" v-bind:key="sportarten.id">
                 <div v-if="sportarten.mannschafts.length > 1">
-                  <b-dropdown-item :to="{ path: '/' + hauptseiten.HName + '/' + sportarten.id }">
+                  <b-dropdown-item :to="{ path: '/' + hauptseiten.HName + '/' + sportarten.SName }">
                     {{ sportarten.STitel}}
                   </b-dropdown-item>
                 </div>
                 <div v-else>
                   <b-dropdown-item 
-                    :to="{ path: hauptseiten.HName + '/' + sportarten.id + '/' + sportarten.mannschafts[0].id }">
+                    :to="{ path: hauptseiten.HName + '/' + sportarten.SName + '/' + sportarten.mannschafts[0].MName }">
                     {{ sportarten.STitel}}
                   </b-dropdown-item>
                 </div>
