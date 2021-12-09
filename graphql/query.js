@@ -15,9 +15,11 @@ query {
     sportartens{
         id
         STitel
+        SName
         mannschafts{
             id
             MTitel
+            MName
         }
     }
   }
@@ -38,6 +40,7 @@ query {
       HName
     }
     mannschafts{
+      id
       MName
       MTitel
       Kurzbeschreibung
