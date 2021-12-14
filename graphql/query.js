@@ -48,3 +48,25 @@ query {
   }
 }
 `
+
+export const sportartenMannschaftenQuery = gql`
+query ($name: String!){
+  sportartens(where: {SName: $name}) {
+    id
+    SName
+    STitel
+    hauptseiten{
+      HName
+    }
+    mannschafts{
+      id
+      MName
+      MTitel
+      Cover{
+        caption
+        url
+      }
+      Kurzbeschreibung
+    }
+  }
+}`

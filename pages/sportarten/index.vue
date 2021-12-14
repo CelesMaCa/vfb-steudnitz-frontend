@@ -1,6 +1,5 @@
 <template>
-  <div>
-    <!-- TODO: Fallunterscheidung zwischen Sportarten- Mannschaften-Ansicht -->
+  <div v-if="!$apollo.loading">
     <div v-for="sportarten in sportartens" v-bind:key="sportarten.id">
       <b-card no-body>
         <b-card-body>
@@ -12,12 +11,12 @@
             </b-col>
             <b-col md="10">
               <div v-if="sportarten.mannschafts.length > 1">
-                <b-link :to="{ path: sportarten.hauptseiten.HName + '/' + sportarten.SName }">
+                <b-link :to="{ path: '/' + sportarten.hauptseiten.HName + '/' + sportarten.SName }">
                   <h2>{{ sportarten.STitel }}</h2>
                 </b-link>
               </div>
               <div v-else>
-                <b-link :to="{ path: sportarten.hauptseiten.HName + '/' + sportarten.SName + '/' + sportarten.mannschafts[0].MName }">
+                <b-link :to="{ path: '/' + sportarten.hauptseiten.HName + '/' + sportarten.SName + '/' + sportarten.mannschafts[0].MName }">
                   <h2>{{ sportarten.STitel }}</h2>
                 </b-link>
               </div>
@@ -32,7 +31,7 @@
   </div>  
 </template>
 <script lang="ts">
-import { sportartenQuery } from '../graphql/query.js'
+import { sportartenQuery } from '../../graphql/query.js'
 
 export default {
   data() {
